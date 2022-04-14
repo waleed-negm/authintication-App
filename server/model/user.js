@@ -5,10 +5,10 @@ const joi = require("joi");
 const passwordComlexity = require("joi-password-complexity");
 
 const userSchema = new mongoose.Schema({
-    firstName: { type: string, required: true },
-    lastName: { type: string, required: true },
-    email: { type: string, required: true },
-    password: { type: string, required: true },
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
+    email: { type: String, required: true },
+    password: { type: String, required: true },
 });
 userSchema.methods.generateAuthToken = function () {
     const token = jwt.sign({ _id: this.id }, process.config.JWTPrivateKey, { expiresIn: "7d" });
